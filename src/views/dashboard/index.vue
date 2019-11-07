@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <!-- :style="{backgroundImage:'url('+bg+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}" -->
+    <img :src="bg" class="bg-img" alt="">
   </div>
 </template>
 
@@ -8,11 +9,16 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Dashboard',
+  name: 'Demo',
   computed: {
     ...mapGetters([
       'name'
     ])
+  },
+  data() {
+    return {
+      bg: require('@/assets/main/main-back.jpg')
+    }
   }
 }
 </script>
@@ -20,11 +26,15 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   &-container {
-    margin: 30px;
+    margin: 10px;
+
   }
   &-text {
     font-size: 30px;
     line-height: 46px;
   }
+}
+.bg-img{
+  width: 100%
 }
 </style>
